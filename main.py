@@ -136,6 +136,58 @@ texts_dict = {
         "merge_prompt": "Ingrese el nombre para el PDF combinado (sin extensión):",
         "cancel": "Cancelado",
         "no_merge_name": "No se proporcionó nombre para el PDF combinado. Cancelando."
+    },
+    "pt": {
+        "select_files": "Selecionar arquivos para converter",
+        "select_folder": "Selecionar pasta para converter",
+        "select_output": "Selecionar pasta de saída",
+        "converting": "Convertendo... por favor aguarde.",
+        "done": "✅ Conversão concluída!",
+        "fill_fields": "Por favor preencha todos os campos antes de converter.",
+        "error": "Informações em falta",
+        "merge_title": "PDF combinado",
+        "merge_prompt": "Digite o nome para o PDF combinado (sem extensão):",
+        "cancel": "Cancelado",
+        "no_merge_name": "Nenhum nome fornecido para o PDF combinado. Cancelando."
+    },
+    "ar": {
+        "select_files": "اختر الملفات للتحويل",
+        "select_folder": "اختر المجلد للتحويل",
+        "select_output": "اختر مجلد الإخراج",
+        "converting": "جاري التحويل... يرجى الانتظار.",
+        "done": "✅ تم التحويل بنجاح!",
+        "fill_fields": "يرجى ملء جميع الحقول قبل التحويل.",
+        "error": "معلومات مفقودة",
+        "merge_title": "PDF مدمج",
+        "merge_prompt": "أدخل اسم ملف PDF المدمج (بدون امتداد):",
+        "cancel": "ملغي",
+        "no_merge_name": "لم يتم تقديم اسم لملف PDF المدمج. إلغاء العملية."
+    },
+    "fa": {
+        "select_files": "انتخاب فایل‌ها برای تبدیل",
+        "select_folder": "انتخاب پوشه برای تبدیل",
+        "select_output": "انتخاب پوشه خروجی",
+        "converting": "در حال تبدیل... لطفاً منتظر بمانید.",
+        "done": "✅ تبدیل با موفقیت انجام شد!",
+        "fill_fields": "لطفاً تمام فیلدها را قبل از تبدیل پر کنید.",
+        "error": "اطلاعات ناقص",
+        "merge_title": "PDF ترکیب شده",
+        "merge_prompt": "نام فایل PDF ترکیب شده را وارد کنید (بدون پسوند):",
+        "cancel": "لغو شده",
+        "no_merge_name": "نامی برای فایل PDF ترکیب شده ارائه نشده است. لغو عملیات."
+    },
+    "hi": {
+        "select_files": "रूपांतरण के लिए फाइलें चुनें",
+        "select_folder": "रूपांतरण के लिए फ़ोल्डर चुनें",
+        "select_output": "आउटपुट फ़ोल्डर चुनें",
+        "converting": "रूपांतरण हो रहा है... कृपया प्रतीक्षा करें।",
+        "done": "✅ रूपांतरण पूर्ण हुआ!",
+        "fill_fields": "कृपया रूपांतरण से पहले सभी फील्ड भरें।",
+        "error": "जानकारी गुम",
+        "merge_title": "संयुक्त PDF",
+        "merge_prompt": "संयुक्त PDF के लिए नाम दर्ज करें (एक्सटेंशन के बिना):",
+        "cancel": "रद्द",
+        "no_merge_name": "संयुक्त PDF के लिए कोई नाम प्रदान नहीं किया गया। रद्द कर रहे हैं।"
     }
 }
 
@@ -297,6 +349,10 @@ tk.Radiobutton(root, text="Français", variable=lang_var, value="fr", command=la
 tk.Radiobutton(root, text="Русский", variable=lang_var, value="ru", command=lambda: set_language("ru")).pack(anchor="w", padx=20)
 tk.Radiobutton(root, text="中文", variable=lang_var, value="zh", command=lambda: set_language("zh")).pack(anchor="w", padx=20)
 tk.Radiobutton(root, text="Español", variable=lang_var, value="es", command=lambda: set_language("es")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="Português", variable=lang_var, value="pt", command=lambda: set_language("pt")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="العربية", variable=lang_var, value="ar", command=lambda: set_language("ar")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="فارسی", variable=lang_var, value="fa", command=lambda: set_language("fa")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="हिंदी", variable=lang_var, value="hi", command=lambda: set_language("hi")).pack(anchor="w", padx=20)
 set_language("en")
 
 # Input/Output selectors
