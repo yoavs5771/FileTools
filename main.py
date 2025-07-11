@@ -84,6 +84,58 @@ texts_dict = {
         "merge_prompt": "הזן שם לקובץ הממוזג (ללא סיומת):",
         "cancel": "בוטל",
         "no_merge_name": "לא הוזן שם לקובץ הממוזג. הפעולה בוטלה."
+    },
+    "fr": {
+        "select_files": "Sélectionner les fichiers à convertir",
+        "select_folder": "Sélectionner le dossier à convertir",
+        "select_output": "Sélectionner le dossier de sortie",
+        "converting": "Conversion en cours... veuillez patienter.",
+        "done": "✅ Conversion terminée!",
+        "fill_fields": "Veuillez remplir tous les champs avant la conversion.",
+        "error": "Informations manquantes",
+        "merge_title": "PDF fusionné",
+        "merge_prompt": "Entrez le nom du PDF fusionné (sans extension):",
+        "cancel": "Annulé",
+        "no_merge_name": "Aucun nom fourni pour le PDF fusionné. Annulation."
+    },
+    "ru": {
+        "select_files": "Выберите файлы для конвертации",
+        "select_folder": "Выберите папку для конвертации",
+        "select_output": "Выберите папку назначения",
+        "converting": "Конвертация... пожалуйста, подождите.",
+        "done": "✅ Конвертация завершена!",
+        "fill_fields": "Пожалуйста, заполните все поля перед конвертацией.",
+        "error": "Недостающая информация",
+        "merge_title": "Объединенный PDF",
+        "merge_prompt": "Введите имя для объединенного PDF (без расширения):",
+        "cancel": "Отменено",
+        "no_merge_name": "Не указано имя для объединенного PDF. Отмена."
+    },
+    "zh": {
+        "select_files": "选择要转换的文件",
+        "select_folder": "选择要转换的文件夹",
+        "select_output": "选择输出文件夹",
+        "converting": "正在转换... 请稍候。",
+        "done": "✅ 转换完成！",
+        "fill_fields": "请在转换前填写所有字段。",
+        "error": "缺少信息",
+        "merge_title": "合并的PDF",
+        "merge_prompt": "输入合并PDF的名称（不包含扩展名）：",
+        "cancel": "已取消",
+        "no_merge_name": "未提供合并PDF的名称。取消操作。"
+    },
+    "es": {
+        "select_files": "Seleccionar archivos para convertir",
+        "select_folder": "Seleccionar carpeta para convertir",
+        "select_output": "Seleccionar carpeta de salida",
+        "converting": "Convirtiendo... por favor espere.",
+        "done": "✅ ¡Conversión completada!",
+        "fill_fields": "Por favor complete todos los campos antes de convertir.",
+        "error": "Información faltante",
+        "merge_title": "PDF combinado",
+        "merge_prompt": "Ingrese el nombre para el PDF combinado (sin extensión):",
+        "cancel": "Cancelado",
+        "no_merge_name": "No se proporcionó nombre para el PDF combinado. Cancelando."
     }
 }
 
@@ -241,6 +293,10 @@ lang_var = tk.StringVar(value="en")
 tk.Label(root, text="🌐 Language / שפה:").pack(anchor="w", padx=10)
 tk.Radiobutton(root, text="English", variable=lang_var, value="en", command=lambda: set_language("en")).pack(anchor="w", padx=20)
 tk.Radiobutton(root, text="עברית", variable=lang_var, value="he", command=lambda: set_language("he")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="Français", variable=lang_var, value="fr", command=lambda: set_language("fr")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="Русский", variable=lang_var, value="ru", command=lambda: set_language("ru")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="中文", variable=lang_var, value="zh", command=lambda: set_language("zh")).pack(anchor="w", padx=20)
+tk.Radiobutton(root, text="Español", variable=lang_var, value="es", command=lambda: set_language("es")).pack(anchor="w", padx=20)
 set_language("en")
 
 # Input/Output selectors
