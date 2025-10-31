@@ -56,146 +56,68 @@ def open_folder(path):
     elif os.name == 'posix':
         subprocess.run(["xdg-open", str(path)])
 
-# =================== Localization Dictionary ===================
+# =================== Text Resources ===================
 
-texts_dict = {
-    "en": {
-        "select_files": "Select files to convert",
-        "select_folder": "Select folder to convert",
-        "select_output": "Select output folder",
-        "converting": "Converting... please wait.",
-        "done": "✅ Conversion complete!",
-        "fill_fields": "Please fill all fields before converting.",
-        "error": "Missing Info",
-        "merge_title": "Merged PDF",
-        "merge_prompt": "Enter name for merged PDF (without extension):",
-        "cancel": "Canceled",
-        "no_merge_name": "No name provided for merged PDF. Canceling."
-    },
-    "he": {
-        "select_files": "בחר קבצים להמרה",
-        "select_folder": "בחר תיקייה להמרה",
-        "select_output": "בחר תיקיית יעד",
-        "converting": "ממיר... אנא המתן",
-        "done": "✅ ההמרה הסתיימה!",
-        "fill_fields": "אנא מלא את כל השדות לפני התחלת המרה.",
-        "error": "חסר מידע",
-        "merge_title": "קובץ PDF ממוזג",
-        "merge_prompt": "הזן שם לקובץ הממוזג (ללא סיומת):",
-        "cancel": "בוטל",
-        "no_merge_name": "לא הוזן שם לקובץ הממוזג. הפעולה בוטלה."
-    },
-    "fr": {
-        "select_files": "Sélectionner les fichiers à convertir",
-        "select_folder": "Sélectionner le dossier à convertir",
-        "select_output": "Sélectionner le dossier de sortie",
-        "converting": "Conversion en cours... veuillez patienter.",
-        "done": "✅ Conversion terminée!",
-        "fill_fields": "Veuillez remplir tous les champs avant la conversion.",
-        "error": "Informations manquantes",
-        "merge_title": "PDF fusionné",
-        "merge_prompt": "Entrez le nom du PDF fusionné (sans extension):",
-        "cancel": "Annulé",
-        "no_merge_name": "Aucun nom fourni pour le PDF fusionné. Annulation."
-    },
-    "ru": {
-        "select_files": "Выберите файлы для конвертации",
-        "select_folder": "Выберите папку для конвертации",
-        "select_output": "Выберите папку назначения",
-        "converting": "Конвертация... пожалуйста, подождите.",
-        "done": "✅ Конвертация завершена!",
-        "fill_fields": "Пожалуйста, заполните все поля перед конвертацией.",
-        "error": "Недостающая информация",
-        "merge_title": "Объединенный PDF",
-        "merge_prompt": "Введите имя для объединенного PDF (без расширения):",
-        "cancel": "Отменено",
-        "no_merge_name": "Не указано имя для объединенного PDF. Отмена."
-    },
-    "zh": {
-        "select_files": "选择要转换的文件",
-        "select_folder": "选择要转换的文件夹",
-        "select_output": "选择输出文件夹",
-        "converting": "正在转换... 请稍候。",
-        "done": "✅ 转换完成！",
-        "fill_fields": "请在转换前填写所有字段。",
-        "error": "缺少信息",
-        "merge_title": "合并的PDF",
-        "merge_prompt": "输入合并PDF的名称（不包含扩展名）：",
-        "cancel": "已取消",
-        "no_merge_name": "未提供合并PDF的名称。取消操作。"
-    },
-    "es": {
-        "select_files": "Seleccionar archivos para convertir",
-        "select_folder": "Seleccionar carpeta para convertir",
-        "select_output": "Seleccionar carpeta de salida",
-        "converting": "Convirtiendo... por favor espere.",
-        "done": "✅ ¡Conversión completada!",
-        "fill_fields": "Por favor complete todos los campos antes de convertir.",
-        "error": "Información faltante",
-        "merge_title": "PDF combinado",
-        "merge_prompt": "Ingrese el nombre para el PDF combinado (sin extensión):",
-        "cancel": "Cancelado",
-        "no_merge_name": "No se proporcionó nombre para el PDF combinado. Cancelando."
-    },
-    "pt": {
-        "select_files": "Selecionar arquivos para converter",
-        "select_folder": "Selecionar pasta para converter",
-        "select_output": "Selecionar pasta de saída",
-        "converting": "Convertendo... por favor aguarde.",
-        "done": "✅ Conversão concluída!",
-        "fill_fields": "Por favor preencha todos os campos antes de converter.",
-        "error": "Informações em falta",
-        "merge_title": "PDF combinado",
-        "merge_prompt": "Digite o nome para o PDF combinado (sem extensão):",
-        "cancel": "Cancelado",
-        "no_merge_name": "Nenhum nome fornecido para o PDF combinado. Cancelando."
-    },
-    "ar": {
-        "select_files": "اختر الملفات للتحويل",
-        "select_folder": "اختر المجلد للتحويل",
-        "select_output": "اختر مجلد الإخراج",
-        "converting": "جاري التحويل... يرجى الانتظار.",
-        "done": "✅ تم التحويل بنجاح!",
-        "fill_fields": "يرجى ملء جميع الحقول قبل التحويل.",
-        "error": "معلومات مفقودة",
-        "merge_title": "PDF مدمج",
-        "merge_prompt": "أدخل اسم ملف PDF المدمج (بدون امتداد):",
-        "cancel": "ملغي",
-        "no_merge_name": "لم يتم تقديم اسم لملف PDF المدمج. إلغاء العملية."
-    },
-    "fa": {
-        "select_files": "انتخاب فایل‌ها برای تبدیل",
-        "select_folder": "انتخاب پوشه برای تبدیل",
-        "select_output": "انتخاب پوشه خروجی",
-        "converting": "در حال تبدیل... لطفاً منتظر بمانید.",
-        "done": "✅ تبدیل با موفقیت انجام شد!",
-        "fill_fields": "لطفاً تمام فیلدها را قبل از تبدیل پر کنید.",
-        "error": "اطلاعات ناقص",
-        "merge_title": "PDF ترکیب شده",
-        "merge_prompt": "نام فایل PDF ترکیب شده را وارد کنید (بدون پسوند):",
-        "cancel": "لغو شده",
-        "no_merge_name": "نامی برای فایل PDF ترکیب شده ارائه نشده است. لغو عملیات."
-    },
-    "hi": {
-        "select_files": "रूपांतरण के लिए फाइलें चुनें",
-        "select_folder": "रूपांतरण के लिए फ़ोल्डर चुनें",
-        "select_output": "आउटपुट फ़ोल्डर चुनें",
-        "converting": "रूपांतरण हो रहा है... कृपया प्रतीक्षा करें।",
-        "done": "✅ रूपांतरण पूर्ण हुआ!",
-        "fill_fields": "कृपया रूपांतरण से पहले सभी फील्ड भरें।",
-        "error": "जानकारी गुम",
-        "merge_title": "संयुक्त PDF",
-        "merge_prompt": "संयुक्त PDF के लिए नाम दर्ज करें (एक्सटेंशन के बिना):",
-        "cancel": "रद्द",
-        "no_merge_name": "संयुक्त PDF के लिए कोई नाम प्रदान नहीं किया गया। रद्द कर रहे हैं।"
-    }
+texts = {
+    "select_files": "Select files to convert",
+    "select_folder": "Select folder to convert",
+    "select_output": "Select output folder",
+    "converting": "Converting... please wait.",
+    "done": "✅ Conversion complete!",
+    "fill_fields": "Please fill all fields before converting.",
+    "error": "Missing Info",
+    "merge_title": "Merged PDF",
+    "merge_prompt": "Enter name for merged PDF (without extension):",
+    "cancel": "Canceled",
+    "no_merge_name": "No name provided for merged PDF. Canceling."
 }
 
-def set_language(lang):
-    """Set the GUI language from dictionary."""
-    global texts
-    texts = texts_dict[lang]
-    lang_var.set(lang)
+selection_listbox = None
+
+
+def refresh_selection_display(items, mode="files"):
+    """Update the on-screen list of selected items."""
+    if selection_listbox is None:
+        return
+
+    selection_listbox.delete(0, tk.END)
+
+    if not items:
+        selection_listbox.insert(tk.END, "No items selected yet.")
+        return
+
+    if mode == "folder":
+        folder_path = Path(items[0])
+        selection_listbox.insert(tk.END, f"[Folder] {folder_path}")
+        try:
+            children = sorted(
+                list(folder_path.iterdir()),
+                key=lambda p: (p.is_file(), p.name.lower())
+            )
+            selection_listbox.insert(tk.END, f"  {len(children)} item(s) inside")
+        except Exception:
+            selection_listbox.insert(tk.END, "  (Unable to preview folder contents)")
+            return
+
+        max_items = 25
+        for idx, child in enumerate(children):
+            prefix = "  • " if child.is_file() else "  📁 "
+            selection_listbox.insert(tk.END, f"{prefix}{child.name}")
+            if idx + 1 == max_items:
+                selection_listbox.insert(tk.END, "  ... (more items not shown)")
+                break
+    else:
+        selection_listbox.insert(tk.END, f"{len(items)} item(s) selected:")
+        for path in items:
+            p = Path(path)
+            label = f"  📁 {p.name}" if p.is_dir() else f"  • {p.name}"
+            selection_listbox.insert(tk.END, label)
+
+
+def clear_selection():
+    """Clear the current input selection and reset the list display."""
+    input_var.set("")
+    refresh_selection_display([])
 
 # =================== GUI Actions ===================
 
@@ -204,9 +126,17 @@ def browse_input():
     if input_choice.get() == "files":
         files = filedialog.askopenfilenames(title=texts["select_files"])
         input_var.set("\n".join(files))
+        if files:
+            refresh_selection_display(files, mode="files")
+        else:
+            refresh_selection_display([])
     else:
         folder = filedialog.askdirectory(title=texts["select_folder"])
         input_var.set(folder)
+        if folder:
+            refresh_selection_display([folder], mode="folder")
+        else:
+            refresh_selection_display([])
 
 def browse_output():
     """Open folder selector for output location."""
@@ -220,10 +150,14 @@ def handle_drop(event):
     if clean:
         if clean[0].is_dir():
             input_choice.set("folder")
-            input_var.set(str(clean[0]))
+            folder_path = str(clean[0])
+            input_var.set(folder_path)
+            refresh_selection_display([folder_path], mode="folder")
         else:
             input_choice.set("files")
-            input_var.set("\n".join(str(p) for p in clean))
+            files = [str(p) for p in clean]
+            input_var.set("\n".join(files))
+            refresh_selection_display(files, mode="files")
 
 def threaded_conversion():
     """Prepare GUI interaction before background conversion."""
@@ -271,6 +205,7 @@ def start_conversion(merged_name=None):
         ext = file.suffix.lower().lstrip('.')
         stem = file.stem
 
+
         for fmt in selected_formats:
             out_dir = output / f"{fmt}_output"
             out_dir.mkdir(exist_ok=True)
@@ -290,7 +225,8 @@ def start_conversion(merged_name=None):
                     elif fmt == "html":
                         convert_docx_to_html(file, save_path)
 
-                elif ext == "pptx" and fmt == "pdf":
+                # Add support for PPT to PDF
+                elif (ext == "pptx" or ext == "ppt") and fmt == "pdf":
                     convert_pptx_to_pdf(file, save_path)
                     time.sleep(1)
                     pdfs_created.append(save_path)
@@ -338,54 +274,81 @@ def start_conversion(merged_name=None):
 
 root = TkinterDnD.Tk()
 root.title("🛠️ File Converter Tool")
-root.geometry("650x720")
+root.geometry("720x900")
+root.minsize(620, 720)
 
-# Language selection
-lang_var = tk.StringVar(value="en")
-tk.Label(root, text="🌐 Language / שפה:").pack(anchor="w", padx=10)
-tk.Radiobutton(root, text="English", variable=lang_var, value="en", command=lambda: set_language("en")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="עברית", variable=lang_var, value="he", command=lambda: set_language("he")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="Français", variable=lang_var, value="fr", command=lambda: set_language("fr")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="Русский", variable=lang_var, value="ru", command=lambda: set_language("ru")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="中文", variable=lang_var, value="zh", command=lambda: set_language("zh")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="Español", variable=lang_var, value="es", command=lambda: set_language("es")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="Português", variable=lang_var, value="pt", command=lambda: set_language("pt")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="العربية", variable=lang_var, value="ar", command=lambda: set_language("ar")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="فارسی", variable=lang_var, value="fa", command=lambda: set_language("fa")).pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="हिंदी", variable=lang_var, value="hi", command=lambda: set_language("hi")).pack(anchor="w", padx=20)
-set_language("en")
-
-# Input/Output selectors
 input_choice = tk.StringVar(value="files")
 input_var = tk.StringVar()
 output_var = tk.StringVar()
 merge_var = tk.BooleanVar()
 format_vars = {fmt: tk.BooleanVar() for fmt in ["pdf", "txt", "html", "jpg", "png", "bmp", "tiff"]}
 
-tk.Label(root, text="Choose input type:").pack(anchor="w", padx=10, pady=(10, 0))
-tk.Radiobutton(root, text="Select Files", variable=input_choice, value="files").pack(anchor="w", padx=20)
-tk.Radiobutton(root, text="Select Folder", variable=input_choice, value="folder").pack(anchor="w", padx=20)
+main_frame = tk.Frame(root, padx=20, pady=20)
+main_frame.pack(fill="both", expand=True)
 
-tk.Button(root, text="📂 Browse Input", command=browse_input).pack(pady=5)
-tk.Entry(root, textvariable=input_var, width=70).pack(padx=10, pady=5)
+header_label = tk.Label(main_frame, text="File Converter Tool", font=("Segoe UI", 18, "bold"))
+header_label.pack(anchor="center")
+subheader_label = tk.Label(
+    main_frame,
+    text="Convert documents, presentations, images, and more with a single click.",
+    font=("Segoe UI", 10)
+)
+subheader_label.pack(anchor="center", pady=(4, 18))
 
-tk.Label(root, text="Choose output folder:").pack(anchor="w", padx=10, pady=(10, 0))
-tk.Button(root, text="📁 Browse Output", command=browse_output).pack(pady=5)
-tk.Entry(root, textvariable=output_var, width=70).pack(padx=10, pady=5)
+input_frame = tk.LabelFrame(main_frame, text="Input selection", padx=12, pady=12)
+input_frame.pack(fill="x", pady=(0, 15))
 
-tk.Label(root, text="Select output formats:").pack(anchor="w", padx=10, pady=(10, 0))
-for fmt, var in format_vars.items():
-    tk.Checkbutton(root, text=fmt.upper(), variable=var).pack(anchor="w", padx=20)
+choice_frame = tk.Frame(input_frame)
+choice_frame.pack(anchor="w", pady=(0, 8))
+tk.Radiobutton(choice_frame, text="Select Files", variable=input_choice, value="files").pack(side="left", padx=(0, 15))
+tk.Radiobutton(choice_frame, text="Select Folder", variable=input_choice, value="folder").pack(side="left")
 
-tk.Checkbutton(root, text="🗃️ Merge PDFs into one", variable=merge_var).pack(anchor="w", padx=10, pady=10)
-tk.Button(root, text="🚀 Start Conversion", command=threaded_conversion).pack(pady=20)
+controls_frame = tk.Frame(input_frame)
+controls_frame.pack(fill="x")
+tk.Button(controls_frame, text="📂 Browse Input", command=browse_input).pack(side="left")
+tk.Button(controls_frame, text="Clear selection", command=clear_selection).pack(side="right")
 
-progress = ttk.Progressbar(root, length=500, mode='determinate')
-progress.pack(pady=5)
-progress_label = tk.Label(root, text="")
-progress_label.pack(pady=5)
+tk.Entry(input_frame, textvariable=input_var, width=70).pack(fill="x", pady=(10, 0))
 
-tk.Label(root, text="v2.1 | Created by Yoavs5771", font=("Arial", 8)).pack(side="bottom", pady=10)
+selection_frame = tk.LabelFrame(main_frame, text="Selected items", padx=12, pady=12)
+selection_frame.pack(fill="both", expand=False, pady=(0, 15))
+selection_container = tk.Frame(selection_frame)
+selection_container.pack(fill="both", expand=True)
+selection_listbox = tk.Listbox(selection_container, height=10, activestyle="none")
+selection_listbox.pack(side="left", fill="both", expand=True)
+selection_scrollbar = tk.Scrollbar(selection_container, orient="vertical", command=selection_listbox.yview)
+selection_scrollbar.pack(side="right", fill="y")
+selection_listbox.config(yscrollcommand=selection_scrollbar.set)
+
+output_frame = tk.LabelFrame(main_frame, text="Output folder", padx=12, pady=12)
+output_frame.pack(fill="x", pady=(0, 15))
+tk.Button(output_frame, text="📁 Browse Output", command=browse_output).pack(anchor="w")
+tk.Entry(output_frame, textvariable=output_var, width=70).pack(fill="x", pady=(8, 0))
+
+formats_frame = tk.LabelFrame(main_frame, text="Select output formats", padx=12, pady=12)
+formats_frame.pack(fill="x", pady=(0, 15))
+formats_grid = tk.Frame(formats_frame)
+formats_grid.pack(anchor="w")
+for idx, (fmt, var) in enumerate(format_vars.items()):
+    row, col = divmod(idx, 3)
+    tk.Checkbutton(formats_grid, text=fmt.upper(), variable=var).grid(row=row, column=col, sticky="w", padx=12, pady=6)
+
+options_frame = tk.LabelFrame(main_frame, text="Options", padx=12, pady=12)
+options_frame.pack(fill="x", pady=(0, 15))
+tk.Checkbutton(options_frame, text="🗃️ Merge PDFs into one", variable=merge_var).pack(anchor="w")
+tk.Button(options_frame, text="🚀 Start Conversion", command=threaded_conversion).pack(fill="x", pady=(10, 0))
+
+progress_frame = tk.LabelFrame(main_frame, text="Progress", padx=12, pady=12)
+progress_frame.pack(fill="x")
+progress = ttk.Progressbar(progress_frame, mode='determinate')
+progress.pack(fill="x", pady=(0, 6))
+progress_label = tk.Label(progress_frame, text="Waiting for selection...")
+progress_label.pack(anchor="w")
+
+footer_label = tk.Label(main_frame, text="v2.1 | Created by Yoavs5771", font=("Arial", 8))
+footer_label.pack(side="bottom", pady=(18, 0))
+
+refresh_selection_display([])
 
 # Enable drag & drop
 root.drop_target_register(DND_FILES)
